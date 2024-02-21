@@ -18,8 +18,8 @@ class MonevController extends Controller
     public function index()
     {
         $monevs = Monev::all();
-        dd($monevs);
-        return view('test', compact('monevs'));
+        // dd($monevs);
+        return view('monev.index', compact('monevs'));
     }
 
     /**
@@ -51,8 +51,10 @@ class MonevController extends Controller
         $idMonev = $monev->id;
         $caborMonev = $monev->cabor_monev;
 
+
+
         if($monev){
-            return redirect()->route('monev.createPres', compact('idMonev', 'caborMonev'))->with(['success', 'Data Base Monv Berhasil Disimpan']);
+            return redirect()->route('monev.createpres', compact('idMonev', 'caborMonev'))->with(['success', 'Data Base Monv Berhasil Disimpan']);
         }else{
             return redirect()->route('monev.create')->with(['error', 'Data Base Monv Gagal Disimpan']);
         }
@@ -60,14 +62,16 @@ class MonevController extends Controller
 
     public function createPres($idMonev, $caborMonev){
 
-        $idMonev = Monev::find($idMonev);
+        $monevId = Monev::find($idMonev);
         $dataAtlet = Atlet::where('cabor_atlet', $caborMonev);
         $dataPelatih = Pelatih::where('cabor_pelatih', $caborMonev);
 
         $totalAtlet = $dataAtlet->count();
         $totalPelatih = $dataPelatih->count();
 
-        return view('monev.createPres', compact('idMonev', 'dataAtlet', 'dataPelatih', 'totalAtlet','totalPelatih'));
+        dd($idMonev);
+
+        return view('test', compact('idMonev', 'dataAtlet', 'dataPelatih', 'totalAtlet','totalPelatih'));
 
     }
 
