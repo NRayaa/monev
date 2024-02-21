@@ -232,12 +232,12 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="row mb-3">
-                      <label class="col-sm-2 col-form-label">Submit Button</label>
+                                <div class="row mb-12">
+                      {{-- <label class="col-sm-2 col-form-label">Submit Button</label> --}}
                       <div class="col-sm-10">
-                        <a href="" type="submit" class="btn btn-primary">Submit Form</a>
+                        <button  type="submit" class="btn btn-primary">Submit Form</button>
                       </div>
-                    </div> --}}
+                    </div>
 
                             </form><!-- End General Form Elements -->
 
