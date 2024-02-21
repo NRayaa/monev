@@ -56,8 +56,9 @@ class AtletController extends Controller
     public function show(string $id)
     {
         $detailAtlet = Atlet::find($id);
+        $dataCabor = Cabor::all();
 
-        return view('atlet.show', compact('detailAtlet'));
+        return view('atlet.show', compact('detailAtlet', 'dataCabor'));
     }
 
     /**
