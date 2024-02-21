@@ -56,7 +56,8 @@ class PelatihController extends Controller
     public function show(string $id)
     {
         $detailPelatih = Pelatih::find($id);
-        return view('pelatih.show', compact('detailPelatih'));
+        $dataCabor = Cabor::all();
+        return view('pelatih.show', compact('detailPelatih', 'dataCabor'));
     }
 
     /**

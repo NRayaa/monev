@@ -18,7 +18,7 @@
         <label for="lokasi_monev">Lokasi : <input type="text" name="lokasi_monev" id="lokasi_monev"></label><br>
         <label for="date_monev">Tanggal : <input type="date" name="date_monev" id="date_monev"></label><br>
         <label for="cabor_monev">
-            <select name="cabor_menu" id="cabor_menu">
+            <select name="cabor_monev" id="cabor_monev">
                 @foreach ($dataCabor as $cabor)
                     <option value="{{$cabor->name_cabor}}">{{$cabor->name_cabor}}</option>
                 @endforeach

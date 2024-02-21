@@ -30,5 +30,5 @@ Route::resource('atlet', AtletController::class);
 Route::resource('pelatih', PelatihController::class);
 
 Route::resource('monev', MonevController::class);
-Route::get('monev/createPres/{id}/{caborMonev}', [MonevController::class, 'createPres'])->name('monev.createPres');
+Route::get('monev/createPres/{idMonev}/{caborMonev}', [MonevController::class, 'createPres'])->name('monev.createpres');
 Route::post('monev/{id}/createPres/', 'MonevController@storePres')->name('monev.storePres');

@@ -45,13 +45,13 @@ class MonevController extends Controller
         $monev = Monev::create([
             'lokasi_monev'=>$request->lokasi_monev,
             'date_monev'=>$request->date_monev,
-            'cabor_monev'=>$request->date_monev
+            'cabor_monev'=>$request->cabor_monev
         ]);
 
         $idMonev = $monev->id;
         $caborMonev = $monev->cabor_monev;
 
-
+        // dd($caborMonev);
 
         if($monev){
             return redirect()->route('monev.createpres', compact('idMonev', 'caborMonev'))->with(['success', 'Data Base Monv Berhasil Disimpan']);
@@ -69,9 +69,9 @@ class MonevController extends Controller
         $totalAtlet = $dataAtlet->count();
         $totalPelatih = $dataPelatih->count();
 
-        dd($idMonev);
+        // dd($idMonev);
 
-        return view('test', compact('idMonev', 'dataAtlet', 'dataPelatih', 'totalAtlet','totalPelatih'));
+        return view('monev.createpres', compact('idMonev', 'dataAtlet', 'dataPelatih', 'totalAtlet','totalPelatih'));
 
     }
 
