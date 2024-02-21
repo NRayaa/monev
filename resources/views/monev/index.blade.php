@@ -51,7 +51,7 @@
                     <h5 class="card-title">Data Monev</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center">
-                    <a href="#" type="button" class="btn btn-primary"><i class="bi bi-plus me-1"></i> Tambah</a>
+                    <a href="{{route('monev.create')}}" type="button" class="btn btn-primary"><i class="bi bi-plus me-1"></i> Tambah</a>
                 </div>
             </div>
             <!-- Table with stripped rows -->
