@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Atlet;
 use App\Models\Atletpres;
+use App\Models\Average;
 use App\Models\Cabor;
 use App\Models\Monev;
 use App\Models\Pelatih;
@@ -45,7 +46,7 @@ class MonevController extends Controller
         $monev = Monev::create([
             'lokasi_monev'=>$request->lokasi_monev,
             'date_monev'=>$request->date_monev,
-            'cabor_monev'=>$request->date_monev
+            'cabor_monev'=>$request->cabor_monev
         ]);
 
         $idMonev = $monev->id;
@@ -61,65 +62,53 @@ class MonevController extends Controller
     }
 
     public function createPres($idMonev, $caborMonev){
-
         $monevId = Monev::find($idMonev);
-        $dataAtlet = Atlet::where('cabor_atlet', $caborMonev);
-        $dataPelatih = Pelatih::where('cabor_pelatih', $caborMonev);
+        $dataAtlet = Atlet::where('cabor_atlet', $caborMonev)->get();
+        $dataPelatih = Pelatih::where('cabor_pelatih', $caborMonev)->get();
 
         $totalAtlet = $dataAtlet->count();
         $totalPelatih = $dataPelatih->count();
 
-        dd($idMonev);
-
-        return view('test', compact('idMonev', 'dataAtlet', 'dataPelatih', 'totalAtlet','totalPelatih'));
-
+        return view('monev.createpres', compact('idMonev', 'dataAtlet', 'dataPelatih', 'totalAtlet','totalPelatih'));
     }
 
     public function storePres(Request $request, $idMonev){
-        $this->validate($request, [
-            // Presensi Atlet
-            'name_atletpres'=>'required',
-            'value_atletpres'=> 'required',
-            'keterangan_atletpres'=>'nullable',
-            'monev_id'=>'required',
-
-            // Presensi Pelatih
-            'name_pelatihpres'=>'required',
-            'value_pelatihpres'=>'required',
-            'keterangan_pelatihpres'=>'nullable',
-            'monev_id'=>'required'
-        ], [
-            'value_atletpres.required'=>'Presensi Harus Diisi',
-            'keterangan_pelatihpres'=>'Presensi Harus Diisi'
-        ]);
-
-        $idMonev = $request->input('monev_id');
-
-        foreach ($request->input('atlet') as $atletpresData){
+        $totalAtlet = $request->total_atlet;
+        $totalPelatih = $request->total_pelatih;
+        for ($i=1; $i < $totalAtlet; $i++) {
             $ambilmonevId = Atletpres::create([
-                'name_atletpres'=>$atletpresData['name'],
-                'value_atletpres'=>$atletpresData['value'],
-                'keterangan_atletpres'=>$atletpresData['keterangan'],
+                'name_atletpres'=>$request->name_atlet.$i,
+                'value_atletpres'=>$request->value_atlet.$i,
+                'keterangan_atletpres'=>$request->keterangan_atlet.$i,
                 'monev_id'=>$idMonev
             ]);
-        }
+        };
 
-        foreach ($request->input('pelatih') as $pelatihpresData) {
-            Pelatihpres::create([
-                'name_pelatihpres'=>$pelatihpresData['name'],
-                'value_pelatihpres'=>$pelatihpresData['value'],
-                'keterangan_pelatihpres'=>$pelatihpresData['keterangan'],
+        for ($i=1; $i < $totalPelatih; $i++) {
+            $ambilmonevId = Pelatihpres::create([
+                'name_pelatihpres'=>$request->name_pelatih.$i,
+                'value_pelatihpres'=>$request->value_pelatih.$i,
+                'keterangan_pelatihpres'=>$request->keterangan_pelatih.$i,
                 'monev_id'=>$idMonev
             ]);
-        }
-
-        $monev_id = $ambilmonevId->monev_id;
+        };
 
         return redirect()->route('createAverage', compact('monev_id'));
     }
 
-    public function createAverage ($monev_id){
+    public function createAverage ($monev_id)
+    {
+        $monev = Monev::find($monev_id);
+        return view('monev.createaverage', compact('monev'));
+    }
 
+    public function storeAverage(Request $request, $idMonev){
+        $ambilmonevId = Average::create([
+            'name_average'=>"Average1",
+            'id_monev'=>$idMonev,
+            'value_average'=>$request->lokasi_monev,
+        ]);
+        return redirect()->route('monev.index')->with(['success', 'Data Average Berhasil Disimpan']);
     }
 
     /**

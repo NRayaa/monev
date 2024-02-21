@@ -3,6 +3,7 @@
 use App\Http\Controllers\AtletController;
 use App\Http\Controllers\CaborController;
 use App\Http\Controllers\MonevController;
+use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\PelatihController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +31,8 @@ Route::resource('atlet', AtletController::class);
 Route::resource('pelatih', PelatihController::class);
 
 Route::resource('monev', MonevController::class);
-Route::get('monev/createPres/{id}/{caborMonev}', [MonevController::class, 'createPres'])->name('monev.createPres');
-Route::post('monev/{id}/createPres/', 'MonevController@storePres')->name('monev.storePres');
+Route::get('monev/createPres/{idMonev}/{caborMonev}', [MonevController::class, 'createPres'])->name('monev.createpres');
+Route::post('monev/storePres/{id}', [MonevController::class, 'storePres'])->name('monev.storePres');
+
+Route::get('coba', [MonitorController::class, 'index'])->name('coba');
+Route::get('coba/create', [MonitorController::class, 'create'])->name('create');
