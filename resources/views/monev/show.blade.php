@@ -106,7 +106,7 @@
                                 @foreach ($atletpres as $atlet)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
-                                    <td>{{ $atlet->name_atlethpres }}</td>
+                                    <td>{{ $atlet->name_atletpres }}</td>
                                     <td>{{ $atlet->value_atletpres }}</td>
                                 </tr>
                                 @endforeach
