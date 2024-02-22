@@ -60,13 +60,13 @@ class MonevController extends Controller
     }
 
     public function createPres($idMonev, $caborMonev){
-
         $monevId = Monev::find($idMonev);
         $dataAtlet = Atlet::where('cabor_atlet', $caborMonev)->get();
         $dataPelatih = Pelatih::where('cabor_pelatih', $caborMonev)->get();
-
+        
         $totalAtlet = Atlet::where('cabor_atlet', $caborMonev)->count();
         $totalPelatih = Pelatih::where('cabor_pelatih', $caborMonev)->count();
+
 
         return view('monev.createpres', compact('idMonev', 'dataAtlet', 'dataPelatih', 'totalAtlet','totalPelatih'));
     }
@@ -74,6 +74,7 @@ class MonevController extends Controller
     public function storePres(Request $request, $idMonev){
         $totalAtlet = $request->total_atlet;
         $totalPelatih = $request->total_pelatih;
+
         for ($i=1; $i <= $totalAtlet ; $i++) { 
             Atletpres::create([
                 'monev_id'=>$idMonev,
@@ -106,6 +107,7 @@ class MonevController extends Controller
                 'value_average'=>$request->avrage[$i]
             ]);
         }
+
         return redirect()->route('monev.index')->with(['success', 'Data Average Berhasil Disimpan']);
     }
 

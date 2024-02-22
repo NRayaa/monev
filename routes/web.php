@@ -3,6 +3,7 @@
 use App\Http\Controllers\AtletController;
 use App\Http\Controllers\CaborController;
 use App\Http\Controllers\MonevController;
+use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\PelatihController;
 use Illuminate\Support\Facades\Route;
 
