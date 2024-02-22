@@ -118,7 +118,7 @@
             <div class="tab-pane fade" id="bordered-justified-profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="card-body">
                     <h5 class="card-title">Pelatih</h5>
-                    <input type="hidden" name="total_atlet" value="{{ $totalPelatih }}">
+                    <input type="hidden" name="total_pelatih" value="{{ $totalPelatih }}">
 
                     <!-- Table with stripped rows -->
                     <table class="table table-striped">
@@ -134,7 +134,7 @@
                             @foreach ($dataPelatih as $pelatih)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
-                                    <td><input type="hidden" name="name_atlet[{{ $loop->iteration }}]" id="name_pelatih"
+                                    <td><input type="hidden" name="name_pelatih[{{ $loop->iteration }}]" id="name_pelatih"
                                             value="{{ $pelatih->name_pelatih }}">{{ $pelatih->name_pelatih }}</td>
                                     <td>
                                         <div class="row mb-3">
