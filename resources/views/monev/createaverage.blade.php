@@ -64,7 +64,7 @@
                             <td>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="avrage[{{ $i }}]"
-                                        id="gridRadios2" value="option2">
+                                        id="gridRadios2" value="1">
                                     <label class="form-check-label" for="gridRadios2">
                                         1 (Satu)
                                     </label>
@@ -73,7 +73,7 @@
                             <td>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="avrage[{{ $i }}]"
-                                        id="gridRadios2" value="option2">
+                                        id="gridRadios2" value="2">
                                     <label class="form-check-label" for="gridRadios2">
                                         2 (Dua)
                                     </label>
@@ -82,7 +82,7 @@
                             <td>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="avrage[{{ $i }}]"
-                                        id="gridRadios2" value="option2">
+                                        id="gridRadios2" value="3">
                                     <label class="form-check-label" for="gridRadios2">
                                         3 (Tiga)
                                     </label>
@@ -91,7 +91,7 @@
                             <td>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="avrage[{{ $i }}]"
-                                        id="gridRadios2" value="option2">
+                                        id="gridRadios2" value="4">
                                     <label class="form-check-label" for="gridRadios2">
                                         4 (Empat)
                                     </label>
@@ -100,7 +100,7 @@
                             <td>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="avrage[{{ $i }}]"
-                                        id="gridRadios2" value="option2">
+                                        id="gridRadios2" value="5">
                                     <label class="form-check-label" for="gridRadios2">
                                         5 (Lima)
                                     </label>
