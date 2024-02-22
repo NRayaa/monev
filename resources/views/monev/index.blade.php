@@ -72,7 +72,7 @@
                             <td>{{$monev->date_monev}}</td>
                             <td>{{$monev->lokasi_monev}}</td>
                             <td>{{$monev->cabor_monev}}</td>
-                            <td><a href="#" class="btn btn-warning"><i
+                            <td><a href="{{ route('monev.show', $monev->id) }}" class="btn btn-warning"><i
                                         class="bi bi-search me-1"></i> Detail</a></td>
                         </tr>
                     @endforeach
