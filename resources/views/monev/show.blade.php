@@ -68,7 +68,7 @@
                     <input type="text" class="form-control" disabled value="{{ $monev->cabor_monev }}">
                 </div>
             </div>
-            @endforeach
+            
             <!-- Bordered Tabs Justified -->
             <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
                 <li class="nav-item flex-fill" role="presentation">
