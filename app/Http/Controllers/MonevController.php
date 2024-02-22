@@ -114,7 +114,12 @@ class MonevController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $monevs = Monev::where('id', $id)->get();
+        $pelatihpres = Pelatihpres::where('monev_id', $id)->get();
+        $atletpres = Atletpres::where('monev_id', $id)->get();
+        $averages = Average::where('monev_id', $id)->get();
+        
+        return view('monev.show', compact('monevs', 'pelatihpres', 'atletpres', 'averages'));
     }
 
     /**
