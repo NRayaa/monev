@@ -31,4 +31,6 @@ Route::resource('pelatih', PelatihController::class);
 
 Route::resource('monev', MonevController::class);
 Route::get('monev/createPres/{idMonev}/{caborMonev}', [MonevController::class, 'createPres'])->name('monev.createpres');
-Route::post('monev/{id}/createPres/', 'MonevController@storePres')->name('monev.storePres');
+Route::post('monev/storePres/{idMonev}', [MonevController::class, 'storePres'])->name('monev.storePres');
+Route::get('monev/createAverage/{idMonev}', [MonevController::class, 'createAverage'])->name('monev.createaverage');
+Route::post('monev/storeAverage/{idMonev}', [MonevController::class, 'storeAverage'])->name('monev.storeAverage');
