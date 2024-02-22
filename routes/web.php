@@ -21,9 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/test', function(){
-//     return view('test');
-// })->name('test');
+Route::get('/test', function(){
+    return view('monev.show');
+})->name('test');
 
 Route::resource('cabor', CaborController::class);
 Route::resource('atlet', AtletController::class);
@@ -34,3 +34,4 @@ Route::get('monev/createPres/{idMonev}/{caborMonev}', [MonevController::class, '
 Route::post('monev/storePres/{idMonev}', [MonevController::class, 'storePres'])->name('monev.storePres');
 Route::get('monev/createAverage/{idMonev}', [MonevController::class, 'createAverage'])->name('monev.createaverage');
 Route::post('monev/storeAverage/{idMonev}', [MonevController::class, 'storeAverage'])->name('monev.storeAverage');
+
